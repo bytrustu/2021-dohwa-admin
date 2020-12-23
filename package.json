@@ -1,0 +1,22 @@
+{
+  "name": "dohwa-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "antd": "^4.9.4",
+    "next": "10.0.4",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "sass": "^1.30.0",
+    "styled-components": "^5.2.1",
+    "swr": "^0.3.11",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^4.2.0"
+  }
+}
