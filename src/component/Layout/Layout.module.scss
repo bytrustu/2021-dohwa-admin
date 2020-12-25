@@ -1,0 +1,36 @@
+@import 'src/assets/scss/utils';
+
+.layoutWarp {
+  height: 100vh;
+  min-width: 100rem;
+
+  .headerWrap {
+    height: 3rem;
+    line-height: 3rem;
+  }
+
+  .contentWrap {
+    padding: 2rem;
+  }
+
+  .siderWrap {
+    border-right: 1px solid $border-layout-color;
+
+    li {
+      margin: 0 !important;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      height: auto;
+
+      & + li {
+        margin: 0;
+      }
+    }
+  }
+
+  .footerWrap {
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 2rem;
+  }
+}

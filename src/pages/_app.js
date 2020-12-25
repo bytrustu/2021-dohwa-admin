@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import 'antd/dist/antd.css';
-import '../asset/scss/reset.scss';
-import '../asset/scss/style.scss';
-import Layout from '../component/Layout'
+import '../assets/scss/base/_reset.scss';
+import '../assets/scss/lib/_variable.scss';
+import Layout from '../component/Layout';
 
 const MyApp = ({ Component, pageProps }) => {
   return (
@@ -24,22 +23,26 @@ const MyApp = ({ Component, pageProps }) => {
             <Component {...pageProps} />
           </Layout>
       }
-
     </>
   );
-};
+}
+;
 
-MyApp.propTypes = {
+MyApp.propTypes =
+{
   Component: PropTypes.elementType.isRequired,
-};
+}
+;
 
-MyApp.getInitialProps = async context => {
+MyApp.getInitialProps = async context =>
+{
   const { ctx, Component } = context;
   let pageProps = {};
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
   }
   return { pageProps };
-};
+}
+;
 
 export default MyApp;

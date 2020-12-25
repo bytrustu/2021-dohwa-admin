@@ -5,6 +5,9 @@ const login = (props) => {
   return (
     <div>
       login
+      <br/>
+      <span>
+      </span>
       <Link href="/">
         <a>홈</a>
       </Link>
