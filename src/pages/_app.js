@@ -14,7 +14,7 @@ const MyApp = ({ Component, pageProps }) => {
               className="next-head" />
       </Head>
       {
-        (pageProps && pageProps.pathname === '/auth/login') || (pageProps && pageProps.pathname === '/auth/signup')
+        (pageProps && pageProps.pathname === '/auth') || (pageProps && pageProps.pathname === '/auth/signup')
           ?
           <Component {...pageProps} />
           :

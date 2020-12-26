@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import style from '../Page/Page.module.scss';
+import style from './Footer.module.scss';
 
 const FooterLink = ({ text }) => {
   return (

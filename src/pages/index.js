@@ -5,7 +5,7 @@ const IndexPage = () => {
   return (
     <>
       Hello Nextjs
-      <Link href="/auth/login">
+      <Link href="/auth">
         <a>로그인</a>
       </Link>
     </>

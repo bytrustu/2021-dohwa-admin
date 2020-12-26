@@ -1,0 +1,19 @@
+@import 'src/assets/scss/utils';
+
+.titleWrap {
+  .titleMain {
+    color: $oc-black;
+    font-size: 44px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .titleSub {
+    font-size: 22px;
+    line-height: 1.6;
+    letter-spacing: -.05rem;
+    font-weight: 500;
+    color: $oc-gray-6;
+    margin-bottom: 3rem;
+  }
+}
