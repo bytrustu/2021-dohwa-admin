@@ -4,14 +4,14 @@
   .tabWrap {
     width: 480px;
 
-    & div[class=ant-tabs-nav-list] {
+    div[class=ant-tabs-nav-list] {
       width: 100%;
 
-      & > div {
+      div {
         flex: 1 1 0;
         margin: 0;
 
-        & > div[class=ant-tabs-tab-btn] {
+        div[class=ant-tabs-tab-btn] {
           @include flex-row-center;
           width: 100%;
           font-weight: bold;
