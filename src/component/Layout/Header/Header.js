@@ -1,12 +1,15 @@
 import React from 'react';
 import { Layout } from 'antd';
-import style from '../Layout.module.scss';
+import style from './Header.module.scss';
+import HeaderTitle from './HeaderTitle';
+import HeaderStatus from './HeaderStatus';
 
 const PageHeader = () => {
   const { Header } = Layout;
   return (
     <Header className={style.headerWrap}>
-      Header
+      <HeaderTitle/>
+      <HeaderStatus/>
     </Header>
   );
 };

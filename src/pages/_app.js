@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import '../assets/scss/base/_reset.scss';
-import '../assets/scss/lib/_variable.scss';
+import '../assets/scss/main.scss';
 import Layout from '../component/Layout';
 
 const MyApp = ({ Component, pageProps }) => {

@@ -15,6 +15,28 @@
   overflow: hidden;
 }
 
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin  flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row-center {
+  @include flex-row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column-center {
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+}
+
 // set common button style
 @mixin common-button-style() {
   padding: 0.6rem;

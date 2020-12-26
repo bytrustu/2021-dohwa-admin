@@ -1,3 +1,7 @@
-$primary-color: #357dde;
+@import '~open-color/open-color';
+$primary-color: $oc-blue-5;
 $primary-bg-color: #e3f0ff;
-$border-layout-color: #ddd;
+$layout-bg-color: $oc-gray-1;
+$border-layout-color: $oc-gray-3;
+$height-layout-tb: 3.5rem;
+$width-layout-logo: 12.5rem;

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Layout } from 'antd'
+import { Layout } from 'antd';
 import Header from '../Header/Header';
-import Sider from '../Side/Sider';
+import Sider from '../Sider/Sider';
 import Content from '../Content/Content';
 import Footer from '../Footer';
-import style from '../Layout.module.scss';
+import style from './Page.module.scss';
 
 const Page = ({ children }) => {
   return (

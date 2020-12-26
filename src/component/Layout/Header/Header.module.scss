@@ -1,0 +1,45 @@
+@import 'src/assets/scss/utils';
+
+.headerWrap {
+  height: $height-layout-tb;
+  line-height: $height-layout-tb;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  .titleWrap {
+    width: $width-layout-logo;
+    border-right: 1px solid $border-layout-color;
+    background-color: $primary-bg-color;
+    @include flex-row-center;
+
+    a {
+      strong {
+        color: $oc-gray-8;
+        font-size: .85rem;
+        letter-spacing: .1rem;
+      }
+    }
+  }
+  .statusWrap {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - #{$width-layout-logo});
+    padding: .7rem 1.5rem;
+    .buttonWrap {
+      @include flex-row-center;
+      height: 100%;
+      width: 34px;
+      color: $oc-gray-8;
+
+      span, svg {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      & + .buttonWrap {
+        margin-left: .6rem;
+      }
+    }
+  }
+
+}

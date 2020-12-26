@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from 'antd';
-import style from '../Layout.module.scss';
+import style from './Content.module.scss';
 
 const Content = ({children}) => {
   const { Content } = Layout;
