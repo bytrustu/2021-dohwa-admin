@@ -4,13 +4,13 @@ import Header from '../Header/Header';
 import Sider from '../Sider/Sider';
 import Content from '../Content/Content';
 import Footer from '../Footer';
-import style from './Page.module.scss';
+import './Page.scss';
 
-const Page = ({ children }) => {
+const Page = ({ children, me }) => {
   return (
-    <Layout theme='light' className={style.layoutWarp}>
+    <Layout theme="light" className="layout-warp">
       <Header/>
-      <Layout theme='light'>
+      <Layout theme="light">
         <Sider/>
         <Content>
           {children}

@@ -1,10 +1,10 @@
 import React from 'react';
-import style from './Header.module.scss';
+import './Header.scss';
 import { Button } from 'antd';
 
-const HeaderButton = ({ text }) => {
+const HeaderButton = ({ text, onClick }) => {
   return (
-    <Button type="default" className={style.buttonWrap}>
+    <Button type="primary" className="button-wrap" onClick={onClick}>
       {text}
     </Button>
   );

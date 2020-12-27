@@ -1,13 +1,13 @@
 @import 'src/assets/scss/utils';
 
-.footerWrap {
+.footer-wrap {
   height: $height-layout-tb;
   line-height: $height-layout-tb;
   padding: 0 3rem;
   @include flex-row;
   justify-content: space-between;
 
-  .linkText {
+  .link-text {
     color: $oc-gray-8;
     margin: 0 .5rem;
     &:nth-last-child(1) {

@@ -1,12 +1,12 @@
 import React from 'react';
-import style from './Footer.module.scss';
+import './Footer.scss';
 
 const FooterCopyright = () => {
   return (
     <>
-      <span className={style.linkText}>ⓒ</span>
+      <span className="link-text">ⓒ</span>
       <a>MANEK Corp.</a>
-      <span className={style.linkText}>All rights reserved.</span>
+      <span className="link-text">All rights reserved.</span>
     </>
   );
 };

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Layout } from 'antd';
-import style from './Content.module.scss';
+import './Content.scss';
 
 const Content = ({children}) => {
   const { Content } = Layout;
   return (
-    <Content className={style.contentWrap}>
+    <Content className="content-wrap">
       {children}
     </Content>
   );

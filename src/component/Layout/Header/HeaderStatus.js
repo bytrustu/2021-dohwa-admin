@@ -1,17 +1,20 @@
 import React from 'react';
-import style from './Header.module.scss';
+import './Header.scss';
 import HeaderButton from './HeaderButton';
 import {
-  LogoutOutlined
+  LogoutOutlined,
 } from '@ant-design/icons';
+import { useRouter } from 'next/router';
 
 const HeaderStatus = () => {
+  const router = useRouter();
+  const onClickLogout = () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    router.push('/auth');
+  };
   return (
-    <div className={style.statusWrap}>
-      <HeaderButton text={<LogoutOutlined />}/>
-      <HeaderButton text={2}/>
-      <HeaderButton text={3}/>
-      <HeaderButton text={4}/>
+    <div className="status-wrap">
+      <HeaderButton text={<LogoutOutlined />} onClick={onClickLogout} />
     </div>
   );
 };

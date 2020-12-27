@@ -28,7 +28,6 @@ const themeVariables = lessToJS(
 );
 
 module.exports = withSass({
-  cssModules: true,
   ...withLess({
     lessLoaderOptions: {
       javascriptEnabled: true,

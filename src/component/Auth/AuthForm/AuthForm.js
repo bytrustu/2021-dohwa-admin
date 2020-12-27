@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
-import style from './AuthForm.module.scss';
-import { Tabs } from 'antd';
+import React, { useRef, useEffect } from 'react';
+import './AuthForm.scss';
+import { Tabs, message } from 'antd';
 import InputForm from './InputForm';
+import { loginAPI } from '../../../lib/api/auth';
+
 
 const { TabPane } = Tabs;
 
@@ -14,8 +16,8 @@ const AuthForm = () => {
     ],
     button: {
       text: '로그인',
-      onClick : () => { console.log(1) }
-    }
+      onClick: loginAPI,
+    },
   };
 
   const signupForm = {
@@ -26,27 +28,31 @@ const AuthForm = () => {
     ],
     button: {
       text: '가입',
-      onClick : () => { console.log(1) }
-    }
+      onClick: () => {
+      },
+    },
   };
 
 
+
   return (
-    <div className={style.formWrap}>
-      <Tabs
-        defaultActiveKey="1"
-        centered
-        className={style.tabWrap}
-        size='large'
-      >
-        <TabPane tab="ID/PW 로그인" key="login" className={style.tabItem}>
-          <InputForm data={loginForm}/>
-        </TabPane>
-        <TabPane tab="관리자계정 가입" key="signup" className={style.tabItem}>
-          <InputForm data={signupForm}/>
-        </TabPane>
-      </Tabs>
-    </div>
+    <>
+      <div className="form-wrap">
+        <Tabs
+          defaultActiveKey="1"
+          centered
+          className="tab-wrap"
+          size='large'
+        >
+          <TabPane tab="ID/PW 로그인" key="login" className="tab-item">
+            <InputForm data={loginForm} />
+          </TabPane>
+          <TabPane tab="관리자계정 가입" key="signup" className="tab-item">
+            <InputForm data={signupForm} />
+          </TabPane>
+        </Tabs>
+      </div>
+    </>
   );
 };
 

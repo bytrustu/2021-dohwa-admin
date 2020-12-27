@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import { Menu, Button } from 'antd';
-import style from './Sider.module.scss';
+import './Sider.scss';
 import Link from 'next/link';
 import SiderLogo from './SiderLogo';
 import { useRouter } from 'next/router';
@@ -20,7 +20,7 @@ const Sider = () => {
   const { Sider } = Layout;
   const router = useRouter();
   return (
-    <Sider className={style.siderWrap}>
+    <Sider className="sider-wrap">
       <SiderLogo/>
       <SiderUser/>
       <Menu
@@ -29,7 +29,7 @@ const Sider = () => {
       >
         {
           menuList.map((el, index) => (
-            <Menu.Item key={el.link} icon={el.icon} className={style.menuItem}>
+            <Menu.Item key={el.link} icon={el.icon} className="menu-item">
               <Link href={el.link}>
                 <a>{el.name}</a>
               </Link>

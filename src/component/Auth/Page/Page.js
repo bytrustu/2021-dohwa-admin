@@ -1,11 +1,11 @@
 import React from 'react';
 import { Layout } from 'antd';
-import style from './Page.module.scss';
+import './Page.scss';
 import Auth from '../Auth';
 
 const Page = () => {
   return (
-    <Layout className={style.pageWrap}>
+    <Layout className="page-wrap">
       <Auth/>
     </Layout>
   );

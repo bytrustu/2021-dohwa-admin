@@ -1,9 +1,9 @@
 import React from 'react';
-import style from './Sider.module.scss';
+import './Sider.scss';
 
 const SiderUser = () => {
   return (
-    <div className={`${style.userWrap}`}>
+    <div className="user-wrap">
       <span>bytrustu 님</span>
     </div>
   );

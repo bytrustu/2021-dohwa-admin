@@ -1,0 +1,78 @@
+@import 'src/assets/scss/utils';
+
+.confirm-alert {
+  position: absolute;
+  top: 20%;
+  z-index: 200;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  background-color: $oc-white;
+  width: 482px;
+  animation: zoomIn 0.3s forwards;
+
+  .confirm-alert-header {
+    padding: 40px 40px 0;
+    margin-bottom: 10px;
+    font-size: 19px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    h5 {
+      display: block;
+      width: 100%;
+      height: 36px;
+      font-size: 19px;
+      font-weight: 700;
+      color: #000;
+      line-height: 34px;
+      padding: 0;
+    }
+
+  }
+
+  .confirm-alert-body {
+    line-height: 32px;
+    padding: 30px 36px 45px 37px;
+
+    .confirm-alert-content {
+      @include flex-column;
+      justify-content: center;
+      padding: 1rem .8rem;
+      border: 1px solid $border-layout-color;
+      background-color: $primary-bg-color;
+        h5 {
+          padding: 0;
+          margin: 0;
+          font-size: .8rem;
+          font-weight: 600;
+        }
+    }
+  }
+
+  .confirm-alert-footer {
+    @include flex-row;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 0;
+    padding: 0 40px 35px 0;
+
+    button {
+      @include flex-row-center;
+      min-width: 130px;
+      height: 40px;
+      font-size: 1rem;
+      font-weight: 600;
+
+      & + button {
+        margin-left: .8rem;
+      }
+    }
+  }
+}
+
+
+@keyframes zoomIn { from { transform: scale(0); } to { transform: scale(1); } }
+

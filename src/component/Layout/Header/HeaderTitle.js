@@ -1,10 +1,10 @@
 import React from 'react';
-import style from './Header.module.scss';
+import './Header.scss';
 import Link from 'next/link';
 
 const HeaderTitle = () => {
   return (
-    <div className={style.titleWrap}>
+    <div className="title-wrap">
       <Link href='/'>
         <a>
           <strong>DOWHA ADMIN</strong>
