@@ -20,7 +20,7 @@ const Sider = () => {
   const { Sider } = Layout;
   const router = useRouter();
   return (
-    <Sider className="sider-wrap">
+    <Sider className="layout-sider-wrap">
       <SiderLogo/>
       <SiderUser/>
       <Menu

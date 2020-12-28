@@ -7,7 +7,7 @@ import HeaderStatus from './HeaderStatus';
 const PageHeader = () => {
   const { Header } = Layout;
   return (
-    <Header className="header-wrap">
+    <Header className="layout-header-wrap">
       <HeaderTitle/>
       <HeaderStatus/>
     </Header>

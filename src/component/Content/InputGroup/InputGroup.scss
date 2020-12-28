@@ -1,0 +1,8 @@
+@import 'src/assets/scss/utils';
+
+.input-group-wrap {
+  @include flex-row;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  height: 35px;
+}

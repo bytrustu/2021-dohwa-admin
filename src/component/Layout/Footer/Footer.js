@@ -8,7 +8,7 @@ const Footer = () => {
   const { Footer } = Layout;
 
   return (
-    <Footer className="footer-wrap">
+    <Footer className="layout-footer-wrap">
       <FooterLink text='개인정보관리지침'/>
       <FooterLink text={FooterCopyright()}/>
     </Footer>

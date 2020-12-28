@@ -1,0 +1,24 @@
+@import 'src/assets/scss/utils';
+
+.ant-table-container {
+  margin-bottom: 1.2rem;
+  table {
+    th, td {
+      text-align: center;
+      font-size: 12px;
+      padding: 7px !important;
+    }
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+    button {
+      border: none;
+      background-color: unset;
+      &:hover {
+        background-color: unset;
+      }
+
+    }
+  }
+}

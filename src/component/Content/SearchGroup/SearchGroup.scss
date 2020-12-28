@@ -1,0 +1,30 @@
+@import 'src/assets/scss/utils';
+
+.search-group-wrap {
+  height: 35px;
+  @include flex-row;
+  .ant-select {
+    width: 150px;
+    height: 100%;
+    .ant-select-selector {
+      height: 100%;
+    }
+    & + .ant-input {
+      margin-left: .3rem;
+    }
+  }
+  .ant-input {
+    width: 215px;
+    height: 100%;
+
+    & + button {
+      margin-left: .3rem;
+    }
+  }
+  button {
+    height: 100%;
+    margin-left: 0.3rem;
+    padding: 0 0.8rem;
+    font-weight: 500;
+  }
+}

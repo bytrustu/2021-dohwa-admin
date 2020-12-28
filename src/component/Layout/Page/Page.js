@@ -8,7 +8,7 @@ import './Page.scss';
 
 const Page = ({ children, me }) => {
   return (
-    <Layout theme="light" className="layout-warp">
+    <Layout theme="light" className="layout-page-wrap">
       <Header/>
       <Layout theme="light">
         <Sider/>

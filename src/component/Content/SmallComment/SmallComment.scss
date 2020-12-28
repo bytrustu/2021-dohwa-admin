@@ -1,0 +1,10 @@
+@import 'src/assets/scss/utils';
+
+.small-comment-wrap {
+  margin-bottom: 1rem;
+  span {
+    margin-left: .5rem;
+    font-weight: 500;
+    color: $oc-gray-7;
+  }
+}

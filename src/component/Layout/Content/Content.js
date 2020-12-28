@@ -5,7 +5,7 @@ import './Content.scss';
 const Content = ({children}) => {
   const { Content } = Layout;
   return (
-    <Content className="content-wrap">
+    <Content className="layout-content-wrap">
       {children}
     </Content>
   );
