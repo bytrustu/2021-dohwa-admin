@@ -3,10 +3,13 @@ import './PaginationData.scss';
 import { Pagination } from 'antd';
 
 
-const PaginationData = () => {
+const PaginationData = ({ page, setPage, total = 0 }) => {
+  const onChange = (current) => {
+    setPage(current);
+  }
   return (
     <div className="pagination-data-wrap">
-      <Pagination defaultCurrent={1} total={50} />
+      <Pagination current={page} total={total} onChange={onChange}/>
     </div>
   );
 };

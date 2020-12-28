@@ -1,13 +1,10 @@
 import React from 'react';
 import './TableData.scss';
 import { Button, Table } from 'antd';
-import { EditOutlined, UserSwitchOutlined, CheckSquareTwoTone } from '@ant-design/icons';
 import Image from 'next/image'
 
-const TableData = () => {
-
+const TableData = ({isLoading, data = []}) => {
   const [selectedRowKeys, setSelectedRowKeys] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
 
   const columns = [
     {
@@ -56,20 +53,23 @@ const TableData = () => {
     }
   ];
 
-  const data = [];
-  for (let i = 0; i < 10; i++) {
-    data.push({
-      key: i,
-      email: 'test1@gmail.com',
-      type: '이메일',
-      name: `Edward King ${i}`,
-      phone: '01021112222',
-      birthday: '1989-12-02',
-      disabled: <Image src='/images/content/check.svg' alt="체크이미지" width={15} height={15} />,
-      role: <Image src='/images/content/check.svg' alt="체크이미지" width={15} height={15} />,
-      button: <Button type="disabled"><Image src='/images/content/write.svg' alt='이미지' width={20} height={20} /></Button>
-    });
-  }
+  const dataSource = data.map((el, i) => {
+    const obj = {...el};
+    obj.key = i;
+    const type = {
+      email: '이메일',
+      kakao: '카카오',
+      google: '구글',
+      naver: '네이버'
+    }
+    obj.type = type[obj.type];
+    obj.disabled = obj.disabled === 0 ? <Image src='/images/content/check.svg' alt="체크이미지" width={15} height={15} /> : '';
+    obj.role = obj.role === 1 ? <Image src='/images/content/check.svg' alt="체크이미지" width={15} height={15} /> : '';
+    obj.button = <Button type="disabled"><Image src='/images/content/write.svg' alt='이미지' width={20} height={20} /></Button>
+    return obj;
+  });
+
+  console.log(data, `>>>>>>>`);
 
   const onSelectChange = selectedRowKeys => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
@@ -82,7 +82,7 @@ const TableData = () => {
   };
   return (
     <div className="table-data-wrap user-table-wrap">
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} size="middle" pagination={false}/>
+      <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} size="middle" pagination={false} loading={isLoading}/>
     </div>
   );
 };

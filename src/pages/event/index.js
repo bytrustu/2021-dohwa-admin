@@ -1,10 +1,11 @@
 import React from 'react';
+import MainTitle from '../../component/Content/MainTitle';
 
 const index = () => {
   return (
-    <div>
-      Event
-    </div>
+    <>
+      <MainTitle src="/images/maintitle/event.svg" title="이벤트" />
+    </>
   );
 };
 

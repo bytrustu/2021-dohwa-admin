@@ -1,10 +1,11 @@
 import React from 'react';
+import MainTitle from '../../component/Content/MainTitle';
 
 const index = () => {
   return (
-    <div>
-      Question
-    </div>
+    <>
+      <MainTitle src="/images/maintitle/faqs.svg" title="문의사항" />
+    </>
   );
 };
 

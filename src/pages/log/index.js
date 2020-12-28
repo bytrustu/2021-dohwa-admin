@@ -4,7 +4,7 @@ import MainTitle from '../../component/Content/MainTitle';
 const index = () => {
   return (
     <div>
-      <MainTitle/>
+      <MainTitle src="/images/maintitle/log-file.svg" title="로그" />
     </div>
   );
 };
