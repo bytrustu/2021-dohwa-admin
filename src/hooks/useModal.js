@@ -9,7 +9,7 @@ const useModal = ({ ModalComponent }) => {
 
   const Modal = () => ModalComponent({ data, visible, setVisible, index, beforeTrigger: trigger.current });
   const ModalConfig = ({
-    modalData,
+    modalData = {},
     index,
     beforeTrigger
   }) => {

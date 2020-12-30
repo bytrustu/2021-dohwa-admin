@@ -27,3 +27,16 @@ export const adminUsersAPI = (data) => {
 export const normalUsersAPI = (data) => {
   return axios.post('/user/auth/normal', {indexs: data});
 };
+
+export const addUsersAPI = (data) => {
+  return axios.post('/user/auth/signup', data);
+};
+
+export const editUsersAPI = (data) => {
+  return axios.post('/user/auth/edit', data);
+};
+
+export const findUserAPI = (id) => {
+  const url = `/user/auth/find/${id}`;
+  return axios.get(url);
+}

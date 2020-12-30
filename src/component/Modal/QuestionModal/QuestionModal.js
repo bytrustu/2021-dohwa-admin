@@ -84,19 +84,19 @@ const QuestionModal = ({ visible = false, setVisible, index, beforeTrigger }) =>
           <Question question={data?.question} date={data?.create_date} />
           <Answer edit={edit} answer={data?.answer} input={answer} onChangeInput={onChangeAnswer}/>
           <div className="question-footer">
+            <Button type="default" onClick={onClickClose}>닫기</Button>
             {
               edit
                 ?
                 (
                   <>
-                    <Button type="primary" onClick={onClickSuccess}>답변완료</Button>
                     <Button type="default" onClick={onClickCancle}>답변취소</Button>
+                    <Button type="primary" onClick={onClickSuccess}>답변완료</Button>
                   </>
                 )
                 :
                 <Button type="danger" onClick={onClickEdit}>답변수정</Button>
             }
-            <Button type="default" onClick={onClickClose}>닫기</Button>
           </div>
         </Modal>
       }

@@ -55,8 +55,6 @@ const index = () => {
   const { response, trigger } = loadQuestionListAPI({ page, ...param });
   const { data: questionData, error, isValidating } = response;
 
-  console.log(questionData?.list);
-
   const columnData = [
     {
       title: '답변',
@@ -86,7 +84,6 @@ const index = () => {
   const searchRef = React.useRef();
 
   const onClickAuthor = (email) => {
-    console.log(email);
     setKeyword(email);
     setTimeout(() => {
       searchRef.current.click();

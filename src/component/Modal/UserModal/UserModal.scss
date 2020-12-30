@@ -1,90 +1,55 @@
 @import 'src/assets/scss/utils';
 
-.question-modal-wrap {
+.user-modal-wrap {
   position: absolute !important;
-  width: 60rem !important;
+  width: 30rem !important;
   top: 7% !important;
-  left: calc(50% - 30rem) !important;
+  left: calc(50% - 15rem) !important;
   z-index: 1000;
 
   .ant-modal-body {
-    padding: 0;
+    padding: 2rem 3rem;
     height: auto;
-    max-height: 50rem;
     background: #fcfcfc;
 
-    .question-title {
-      position: relative;
-      padding: 27px 50px 25px 230px;
-      font-size: 17px;
-      background-color: #fff;
-      line-height: 27px;
-      font-weight: 500;
-      border-bottom: 1px solid #eee;
-      height: 80px;
-      @include ellipsis;
+    .user-title {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      span {
+        font-size: .8rem;
+        font-weight: 400;
+      }
     }
 
-    .question {
-      border-bottom: 1px solid #eee;
+    .input-form {
+      margin-bottom: 1rem;
     }
 
-    .question,
-    .answer {
-      position: relative;
-      width: 100%;
-      padding: 20px 200px 20px 230px;
-      font-size: 14px;
-      line-height: 24px;
-      color: #555;
-      box-sizing: border-box;
-      height: 300px;
-      max-height: 300px;
-      overflow-y: auto;
+    .require {
+      label {
+        color: $primary-color;
+        font-weight: 600;
+      }
+    }
 
-      textarea {
-        height: 15rem;
-        resize: none;
+    form {
+      input {
+        height: 3.5rem !important;
+        font-size: 1rem;
+        &:read-only {
+          background-color: $oc-gray-1;
+        }
       }
 
-      .mark {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 180px;
-        margin-top: -30px;
-        line-height: 60px;
-        text-align: center;
-        color: #333;
-        font-weight: 500;
-        font-size: 17px;
-      }
-
-      .writing {
-        font-size: 14px;
-        line-height: 24px;
-        color: #555;
-        white-space: break-spaces;
-      }
-
-      .date {
-        position: absolute;
-        top: 14px;
-        right: 40px;
-        font-weight: 500;
-      }
     }
   }
 
-  .ant-modal-footer {
-    background-color: $oc-gray-1;
-  }
-
-  .question-footer {
+  .modal-footer {
     @include flex-row;
-    border-top: 1px solid #eee;
     justify-content: flex-end;
-    padding: 1rem;
+    margin-top: 2rem;
     button {
       height: 2.5rem;
       & + button {
@@ -100,19 +65,9 @@
   button {
     height: 2.5rem;
     font-weight: 500 !important;
+    font-size: 1rem;
     span {
       font-weight: 500 !important;
     }
-  }
-}
-
-@keyframes display {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%);
   }
 }
