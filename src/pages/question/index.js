@@ -10,10 +10,10 @@ import Pagination from '../../component/Content/PaginationData/PaginationData';
 import useSearchInput from '../../hooks/useSearchInput';
 import Image from 'next/image';
 import useAlert from '../../hooks/useAlert';
-import { selectionArrayByIndexs } from '../../lib/util';
-import { deleteQuestionAPI, loadQuestionByIdAPI, loadQuestionListAPI } from '../../lib/api/question';
+import { deleteQuestionAPI, loadQuestionListAPI } from '../../lib/api/question';
 import QuestionModal from '../../component/Modal/QuestionModal';
 import useModal from '../../hooks/useModal';
+import ButtonGroup from '../../component/Content/ButtonGroup';
 
 const index = () => {
 
@@ -23,6 +23,8 @@ const index = () => {
     page,
     setPage,
     param,
+    keyword,
+    setKeyword,
     onChangeFilter,
     onChangeKeyword,
     onClickSearch,
@@ -35,41 +37,25 @@ const index = () => {
     SuccessAlert,
     ErrorAlert,
     MessageAlert,
+    requestApiHanlder,
   } = useAlert();
 
   const onClickDelete = () => {
-    if (selectedRowKeys.length === 0) {
-      return;
-    }
-    MessageAlert({
+    requestApiHanlder({
+      funcAPI: deleteQuestionAPI,
       title: '문의사항 삭제',
-      type: '삭제',
-      message: `${selectedRowKeys.length}개의 문의사항을 삭제 하시겠습니까?`,
-      isSuccess: true,
-      isOk: true,
-      okOnClick: () => {
-        onConfirmDelete();
-      },
-      isCancel: true,
+      list: questionData.list,
+      targetId: 'question_id',
+      selectedRowKeys,
+      resetSelection,
+      trigger,
     });
   };
-
 
   const { response, trigger } = loadQuestionListAPI({ page, ...param });
   const { data: questionData, error, isValidating } = response;
 
-  const onConfirmDelete = async () => {
-    try {
-      const selectData = selectionArrayByIndexs(questionData.list, selectedRowKeys);
-      const indexs = selectData.map(el => el.question_id);
-      const result = await deleteQuestionAPI(indexs);
-      resetSelection();
-      trigger();
-      MessageAlert({ title: '문의사항 삭제 완료', type: '문의사항 삭제', message: result.data.msg, isSuccess: true });
-    } catch (e) {
-      MessageAlert({ title: '문의사항 삭제 실패', type: '문의사항 삭제', message: e.response.data.msg, isSuccess: false });
-    }
-  };
+  console.log(questionData?.list);
 
   const columnData = [
     {
@@ -97,30 +83,41 @@ const index = () => {
     },
   ];
 
-  const onClickTitle = (index) => {
-    ModalConfig({
-      index,
-      beforeTrigger: trigger
-    })
-  }
+  const searchRef = React.useRef();
+
+  const onClickAuthor = (email) => {
+    console.log(email);
+    setKeyword(email);
+    setTimeout(() => {
+      searchRef.current.click();
+    }, 100);
+  };
 
   const rowData = questionData && Array.isArray(questionData.list) ? questionData.list.map((el, i) => {
     const obj = { ...el };
-    obj.title = <a onClick={() => onClickTitle(obj.question_id)}>{obj.title}</a>,
+    obj.title = <a onClick={() => onClickTitle(obj.question_id)}>{obj.title}</a>;
+    obj.author = <a onClick={() => onClickAuthor(obj.email)}>{obj.author}</a>;
     obj.key = i;
-    obj.is_answer = obj.is_answer ? <span className="success-answer">완료</span> : <span className="not-answer">미등록</span>;
+    obj.is_answer = obj.is_answer ? <span className="success-answer">완료</span> :
+      <span className="not-answer">미등록</span>;
     return obj;
   }) : [];
 
+  const onClickTitle = (index) => {
+    ModalConfig({
+      index,
+      beforeTrigger: trigger,
+    });
+  };
 
   const {
     Modal,
-    ModalConfig
-  } = useModal({ModalComponent: QuestionModal});
+    ModalConfig,
+  } = useModal({ ModalComponent: QuestionModal });
 
   return (
     <>
-      <Modal/>
+      <Modal />
       <SuccessAlert />
       <ErrorAlert />
       <MainTitle src="/images/maintitle/faqs.svg" title="문의사항" />
@@ -131,12 +128,14 @@ const index = () => {
             <Select defaultValue={0} onChange={onChangeFilter}>
               <Option value={0}>전체</Option>
               <Option value={1}>답변완료</Option>
-              <Option value={2}>미답변</Option>
+              <Option value={2}>답변미등록</Option>
             </Select>
-            <Input name="keyword" onChange={onChangeKeyword} />
-            <Button type="default" onClick={onClickSearch}>검색</Button>
-            <Button type="danger" onClick={onClickDelete}>삭제</Button>
+            <Input name="keyword" onChange={onChangeKeyword} value={keyword} />
+            <Button type="default" onClick={onClickSearch} ref={searchRef}>검색</Button>
           </SearchGroup>
+          <ButtonGroup>
+            <Button type="danger" onClick={onClickDelete}>삭제</Button>
+          </ButtonGroup>
         </InputGroup>
         <TableData isLoading={isValidating} columnData={columnData} rowData={rowData} className="question-table-wrap"
                    rowSelection={rowSelection} />

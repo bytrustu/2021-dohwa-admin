@@ -16,35 +16,35 @@ const InputForm = ({ data }) => {
 
   const router = useRouter();
 
-  const [
-    setAlertView,
-    setAlertConfig,
-    AuthAlert,
-  ] = useAlert();
+  const {
+    SuccessAlert,
+    ErrorAlert,
+    MessageAlert,
+  } = useAlert();
 
   const onSubmit = () => {
     button.onClick(input)
       .then(res => {
         document.cookie = `token=${res.data.token};`;
-        setAlertView(true);
-        setAlertConfig({
-          title: '성공',
-          type: '로그인',
+        MessageAlert({
+          title: '로그인 인증 완료',
+          type: '로그인 인증',
           message: '로그인 되었습니다.',
-          isOk: true,
-          okOnClick: () => { router.push('/'); },
-        })
+          okOnClick: () => {
+            router.push('/');
+          },
+          isSuccess: true,
+        });
       })
       .catch(error => {
-        setAlertView(true);
-        setAlertConfig({
-          title: '실패',
-          type: '로그인',
+        MessageAlert({
+          title: '로그인 인증 실패',
+          type: '로그인 인증',
           message: error.response.data.msg,
-          isOk: true,
-        })
+          isSuccess: false,
+        });
       });
-  }
+  };
 
   useEffect(() => {
     if (isNotEmptyObjectValue(input)) {
@@ -55,7 +55,8 @@ const InputForm = ({ data }) => {
 
   return (
     <>
-      <AuthAlert />
+      <SuccessAlert />
+      <ErrorAlert />
       <div className='input-wrap'>
         <Form
           form={inputForm}
@@ -90,4 +91,4 @@ const InputForm = ({ data }) => {
   );
 };
 
-export default InputForm;
+export default React.memo(InputForm);

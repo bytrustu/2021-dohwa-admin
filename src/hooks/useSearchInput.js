@@ -46,6 +46,8 @@ const useSearchInput = () => {
     page,
     setPage,
     param,
+    keyword,
+    setKeyword,
     onClickSearch,
     onChangeKeyword,
     onChangeFilter,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuestionTitle = ({ title='' }) => {
+const UserModalTitle = ({ title='' }) => {
   return (
     <h1 className="question-title" title={title}>
       {title}
@@ -8,4 +8,4 @@ const QuestionTitle = ({ title='' }) => {
   );
 };
 
-export default React.memo(QuestionTitle);
+export default React.memo(UserModalTitle);

@@ -55,4 +55,4 @@ const AuthForm = () => {
   );
 };
 
-export default AuthForm;
+export default React.memo(AuthForm);
