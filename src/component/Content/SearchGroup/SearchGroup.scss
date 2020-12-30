@@ -6,8 +6,11 @@
   .ant-select {
     width: 150px;
     height: 100%;
-    .ant-select-selector {
+    & > div {
       height: 100%;
+    }
+    .ant-select-selector {
+      height: 100% !important;
     }
     & + .ant-input {
       margin-left: .3rem;

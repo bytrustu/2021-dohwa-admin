@@ -1,7 +1,6 @@
 import React from 'react';
 import { Layout } from 'antd';
 import { Menu, Button } from 'antd';
-import './Sider.scss';
 import Link from 'next/link';
 import SiderLogo from './SiderLogo';
 import { useRouter } from 'next/router';

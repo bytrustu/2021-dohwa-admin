@@ -3,6 +3,8 @@
 .layout-sider-wrap {
   border-right: 1px solid $border-layout-color;
 
+
+
   .logo-wrap {
     @include flex-row-center;
     height: 10rem;
@@ -20,9 +22,9 @@
 
   .menu-item {
     margin: 0 !important;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    height: auto;
+    padding-top: .5rem !important;
+    padding-bottom: .5rem !important;
+    height: auto !important;
 
     span {
       margin-left: 1.5rem;

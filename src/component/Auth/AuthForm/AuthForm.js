@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import './AuthForm.scss';
 import { Tabs, message } from 'antd';
 import InputForm from './InputForm';
 import { loginAPI } from '../../../lib/api/auth';

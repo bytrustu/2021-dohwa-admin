@@ -2,26 +2,45 @@
 
 .ant-table-container {
   margin-bottom: 1.2rem;
+
   table {
     th, td {
-      text-align: center;
+      text-align: center !important;
       font-size: 12px;
       padding: 7px !important;
       height: 45px;
     }
+
+    .not-answer {
+      color: $oc-red-5;
+      font-weight: 500;
+    }
+
+    .success-answer {
+      color: $primary-color;
+      font-weight: 500;
+    }
+
+    .ant-table-selection-col {
+      width: 4rem;
+    }
+
     svg {
       width: 1.2rem;
       height: 1.2rem;
     }
+
     button {
       border: none;
       background-color: unset;
       padding: 0;
       height: 100%;
+
       img {
         width: 18px;
         height: 18px;
       }
+
       &:hover {
         background-color: unset;
       }
@@ -29,3 +48,14 @@
     }
   }
 }
+
+.question-table-wrap {
+  table {
+    th:nth-child(3),
+    td:nth-child(3) {
+      text-align: left !important;
+      padding-left: 1.5rem !important;
+    }
+  }
+}
+

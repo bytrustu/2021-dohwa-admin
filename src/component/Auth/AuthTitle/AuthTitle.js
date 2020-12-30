@@ -1,5 +1,4 @@
 import React from 'react';
-import './AuthTitle.scss'
 
 const AuthTitle = () => {
   return (

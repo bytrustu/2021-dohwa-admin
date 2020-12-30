@@ -4,7 +4,6 @@ import Header from '../Header/Header';
 import Sider from '../Sider/Sider';
 import Content from '../Content/Content';
 import Footer from '../Footer';
-import './Page.scss';
 
 const Page = ({ children, me }) => {
   return (

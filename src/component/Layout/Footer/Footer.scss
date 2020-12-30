@@ -3,7 +3,7 @@
 .layout-footer-wrap {
   height: $height-layout-tb;
   line-height: $height-layout-tb;
-  padding: 0 3rem;
+  padding: 0 3rem !important;
   @include flex-row;
   justify-content: space-between;
 

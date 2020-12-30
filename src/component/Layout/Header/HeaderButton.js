@@ -1,5 +1,4 @@
 import React from 'react';
-import './Header.scss';
 import { Button } from 'antd';
 
 const HeaderButton = ({ text, onClick }) => {

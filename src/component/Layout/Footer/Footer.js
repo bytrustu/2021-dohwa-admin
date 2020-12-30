@@ -1,6 +1,5 @@
 import React from 'react';
 import { Layout } from 'antd';
-import './Footer.scss';
 import FooterLink from './FooterLink';
 import FooterCopyright from './FooterCopyright';
 

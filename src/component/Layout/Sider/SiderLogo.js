@@ -1,5 +1,4 @@
 import React from 'react';
-import './Sider.scss';
 import { Image } from 'antd';
 import Link from 'next/link';
 

@@ -16,3 +16,7 @@ export const generateQueryString = (obj = {}) => Object.entries(obj)
     acc += index === 0 ? `?${key}=${value}` : `&${key}=${value}`;
     return acc;
   }, '');
+
+export const selectionArrayByIndexs = (arr=[], indexs=[]) => {
+  return indexs.map(el => arr[el]);
+}

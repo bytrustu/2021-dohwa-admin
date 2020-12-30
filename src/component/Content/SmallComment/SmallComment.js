@@ -1,5 +1,4 @@
 import React from 'react';
-import './SmallComment.scss';
 
 const SmallComment = ({ comment }) => {
   return (
@@ -9,4 +8,4 @@ const SmallComment = ({ comment }) => {
   );
 };
 
-export default SmallComment;
+export default React.memo(SmallComment);

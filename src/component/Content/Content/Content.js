@@ -1,5 +1,4 @@
 import React from 'react';
-import './Content.scss';
 
 const Content = ({ children }) => {
   return (
@@ -9,4 +8,4 @@ const Content = ({ children }) => {
   );
 };
 
-export default Content;
+export default React.memo(Content);

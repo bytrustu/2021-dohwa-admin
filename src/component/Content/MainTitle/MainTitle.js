@@ -1,5 +1,4 @@
 import React from 'react';
-import './MainTitle.scss';
 import { Image } from 'antd';
 
 const MainTitle = ({ src, title }) => {
@@ -13,4 +12,4 @@ const MainTitle = ({ src, title }) => {
   );
 };
 
-export default MainTitle;
+export default React.memo(MainTitle);

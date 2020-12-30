@@ -1,5 +1,4 @@
 import React from 'react';
-import './Sider.scss';
 
 const SiderUser = () => {
   return (

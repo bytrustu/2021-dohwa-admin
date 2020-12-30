@@ -4,7 +4,7 @@ import Head from 'next/head';
 import '../assets/scss/main.scss';
 import Layout from '../component/Layout';
 import axios from '../lib/defaultClient';
-import { loadUser } from '../lib/api/auth';
+import { loadUserAPI } from '../lib/api/auth';
 
 const MyApp = ({ Component, pageProps, me }) => {
     return (
@@ -48,7 +48,7 @@ MyApp.getInitialProps = async context => {
     if (ctx.req && cookies) {
       axios.defaults.headers.Cookie = cookies;
     }
-    const user = await loadUser();
+    const user = await loadUserAPI();
     if (ctx.pathname === '/auth') {
       ctx.res.statusCode = 302;
       ctx.res.setHeader('Location', '/');

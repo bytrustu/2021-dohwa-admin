@@ -1,0 +1,21 @@
+@import 'src/assets/scss/utils';
+
+.ant-modal {
+  position: absolute !important;
+  width: 30rem !important;
+  top: 15% !important;
+  left: calc(50% - 15rem) !important;
+  z-index: 1000;
+  animation: unset;
+
+  .ant-modal-header {
+    border: unset;
+  }
+
+  .ant-modal-footer {
+    border: unset;
+    button {
+      height: 2.5rem;
+    }
+  }
+}

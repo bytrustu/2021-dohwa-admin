@@ -1,0 +1,29 @@
+//Alert
+@import '/src/component/Alert/ConfirmAlert/ConfirmAlert';
+
+//Auth
+@import '/src/component/Auth/Auth/Auth';
+@import '/src/component/Auth/AuthForm/AuthForm';
+@import '/src/component/Auth/AuthTitle/AuthTitle';
+@import '/src/component/Auth/Page/Page';
+
+// Content
+@import '/src/component/Content/ButtonGroup/ButtonGroup';
+@import '/src/component/Content/Content/Content';
+@import '/src/component/Content/InputGroup/InputGroup';
+@import '/src/component/Content/MainTitle/MainTitle';
+@import '/src/component/Content/PaginationData/PaginationData';
+@import '/src/component/Content/SearchGroup/SearchGroup';
+@import '/src/component/Content/SmallComment/SmallComment';
+@import '/src/component/Content/TableData/TableData';
+
+// Layout
+@import '/src/component/Layout/Content/Content';
+@import '/src/component/Layout/Footer/Footer';
+@import '/src/component/Layout/Header/Header';
+@import '/src/component/Layout/Page/Page';
+@import '/src/component/Layout/Sider/Sider';
+
+// Modal
+@import '/src/component/Modal/Modal/Modal';
+@import '/src/component/Modal/QuestionModal/QuestionModal';

@@ -25,7 +25,6 @@ const InputForm = ({ data }) => {
   const onSubmit = () => {
     button.onClick(input)
       .then(res => {
-        console.log(res);
         document.cookie = `token=${res.data.token};`;
         setAlertView(true);
         setAlertConfig({

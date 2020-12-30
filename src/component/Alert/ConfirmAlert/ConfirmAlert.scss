@@ -2,15 +2,15 @@
 
 .confirm-alert {
   position: absolute;
-  top: 20%;
-  z-index: 200;
-  transform: translate(-50%, -50%);
+  top: 40% !important;
+  left: 50% !important;
+  z-index: 99999;
   border-radius: 4px;
-  border: 1px solid rgba(0,0,0,.05);
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  border: 1px solid rgba(0, 0, 0, .05);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
   background-color: $oc-white;
   width: 482px;
-  animation: zoomIn 0.3s forwards;
+  animation: fadeIn 0.5s forwards;
 
   .confirm-alert-header {
     padding: 40px 40px 0;
@@ -42,13 +42,18 @@
       justify-content: center;
       padding: 1rem .8rem;
       border: 1px solid $border-layout-color;
-      background-color: $primary-bg-color;
-        h5 {
-          padding: 0;
-          margin: 0;
-          font-size: .8rem;
-          font-weight: 600;
-        }
+      background-color: $oc-red-1;
+
+      &.success {
+        background-color: $primary-bg-color;
+      }
+
+      h5 {
+        padding: 0;
+        margin: 0;
+        font-size: .8rem;
+        font-weight: 500;
+      }
     }
   }
 
@@ -74,5 +79,14 @@
 }
 
 
-@keyframes zoomIn { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -70%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
 

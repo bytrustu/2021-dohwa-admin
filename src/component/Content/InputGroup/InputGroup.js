@@ -1,5 +1,4 @@
 import React from 'react';
-import './InputGroup.scss';
 
 const InputGroup = ({ children }) => {
   return (
@@ -9,4 +8,4 @@ const InputGroup = ({ children }) => {
   );
 };
 
-export default InputGroup;
+export default React.memo(InputGroup);

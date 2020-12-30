@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button } from 'antd';
-import './ConfirmAlert.scss';
 
 const ConfirmAlert = (
   {
     view = false,
     setView = () => {},
     config,
+    isSuccess = true,
   },
 ) => {
   const {
@@ -36,7 +36,7 @@ const ConfirmAlert = (
         <h5 className='confirm-alert-title'>{title}</h5>
       </header>
       <div className="confirm-alert-body">
-        <div className="confirm-alert-content">
+        <div className={`confirm-alert-content ${isSuccess && 'success'}`}>
           <h5>분류 : {type}</h5>
           <h5>{message}</h5>
         </div>

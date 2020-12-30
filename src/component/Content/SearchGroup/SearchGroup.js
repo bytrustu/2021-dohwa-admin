@@ -1,5 +1,4 @@
 import React from 'react';
-import './SearchGroup.scss';
 
 const SearchGroup = ({ children }) => {
   return (
@@ -9,4 +8,4 @@ const SearchGroup = ({ children }) => {
   );
 };
 
-export default SearchGroup;
+export default React.memo(SearchGroup);

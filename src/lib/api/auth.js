@@ -2,7 +2,7 @@ import axios from '../defaultClient';
 import useSWR from 'swr';
 import fetcher from '../fetcher';
 
-export const loadUser = () => {
+export const loadUserAPI = () => {
   return axios.get('/user/auth/admin');
 }
 

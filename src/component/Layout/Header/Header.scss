@@ -1,9 +1,9 @@
 @import 'src/assets/scss/utils';
 
 .layout-header-wrap {
-  height: $height-layout-tb;
-  line-height: $height-layout-tb;
-  padding: 0;
+  height: $height-layout-tb !important;
+  line-height: $height-layout-tb !important;
+  padding: 0!important;
   display: flex;
   flex-direction: row;
   .title-wrap {

@@ -1,5 +1,4 @@
 import React from 'react';
-import './PaginationData.scss';
 import { Pagination } from 'antd';
 
 

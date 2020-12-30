@@ -8,36 +8,69 @@ import SearchGroup from '../../component/Content/SearchGroup';
 import Content from '../../component/Content';
 import TableData from '../../component/Content/TableData';
 import Pagination from '../../component/Content/PaginationData';
-import { loadUserList } from '../../lib/api/user';
+import { loadUserListAPI } from '../../lib/api/user';
+import useSearchInput from '../../hooks/useSearchInput';
 
 const index = () => {
   const { Option } = Select;
 
-  const [keyword, setKeyword] = React.useState('');
-  const [filter, setFilter] = React.useState(0);
-  const [page, setPage] = React.useState(1);
-  const [param, setParam] = React.useState({
-    keyword: '',
-    filter: 0,
-  });
+  const {
+    page,
+    setPage,
+    param,
+    onClickSearch,
+    onChangeKeyword,
+    onChangeFilter,
+  } = useSearchInput();
 
-  const onClickSearch = () => {
-    setPage(1);
-    setParam({
-      keyword,
-      filter,
-    });
-  }
+  const { data: userData, error, isValidating } = loadUserListAPI({ page, ...param });
+  const columnData = [
+    {
+      title: '유형',
+      dataIndex: 'type',
+      ellipsis: true,
+      width: 120,
+    },
+    {
+      title: '이메일',
+      dataIndex: 'email',
+      ellipsis: true,
+    },
+    {
+      title: '이름',
+      dataIndex: 'name',
+      ellipsis: true,
+    },
+    {
+      title: '연락처',
+      dataIndex: 'phone',
+      ellipsis: true,
+    },
+    {
+      title: '생년월일',
+      dataIndex: 'birthday',
+      ellipsis: true,
+    },
+    {
+      title: '활성화',
+      dataIndex: 'disabled',
+      ellipsis: true,
+      width: 130,
+    },
+    {
+      title: '관리자',
+      dataIndex: 'role',
+      ellipsis: true,
+      width: 130,
+    },
+    {
+      title: '수정',
+      dataIndex: 'button',
+      ellipsis: true,
+      width: 130,
+    }
+  ];
 
-  const onChangeKeyword = (e) => {
-    setKeyword(e.target.value);
-  }
-
-  const onChangeFilter = (value) => {
-    setFilter(value);
-  }
-
-  const { data: userData, error, isValidating } = loadUserList({ page, ...param });
 
   return (
     <>
@@ -62,7 +95,7 @@ const index = () => {
             <Button type="danger">관리자 해제</Button>
           </ButtonGroup>
         </InputGroup>
-        <TableData isLoading={isValidating} data={userData?.userList} />
+        <TableData isLoading={isValidating} columnData={columnData} rowData={userData?.userList} />
         {
           userData?.count !== 0 && <Pagination page={page} setPage={setPage} total={userData?.count}/>
         }
