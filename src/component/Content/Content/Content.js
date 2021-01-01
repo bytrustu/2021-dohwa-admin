@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Content = ({ children }) => {
+const Content = ({ children, style }) => {
   return (
-    <div className="content-wrap">
+    <div className="content-wrap" style={style}>
       {children}
     </div>
   );

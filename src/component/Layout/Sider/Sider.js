@@ -11,7 +11,7 @@ const menuList = [
   { name: '이벤트', link: '/event', icon: ' 📌' },
   { name: '문의사항', link: '/question', icon: '📋' },
   { name: '제품정보', link: '/product', icon: '🗂' },
-  { name: '회원관리', link: '/user', icon: '⚙️' },
+  { name: '계정관리', link: '/user', icon: '⚙️' },
   { name: '로그', link: '/log', icon: '🔍' },
 ];
 

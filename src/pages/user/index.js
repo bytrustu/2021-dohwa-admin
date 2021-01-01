@@ -41,11 +41,11 @@ const index = () => {
     SuccessAlert,
     ErrorAlert,
     MessageAlert,
-    requestApiHanlder,
+    requestApiSelectedHanlder,
   } = useAlert();
 
   const onClickActiveUsers = () => {
-    requestApiHanlder({
+    requestApiSelectedHanlder({
       funcAPI: activeUsersAPI,
       title: '계정 활성화 설정',
       list: userData.list,
@@ -57,7 +57,7 @@ const index = () => {
   };
 
   const onClickDisabledUsers = () => {
-    requestApiHanlder({
+    requestApiSelectedHanlder({
       funcAPI: disabledUsersAPI,
       title: '계정 비활성화 설정',
       list: userData.list,
@@ -69,7 +69,7 @@ const index = () => {
   };
 
   const onClickAdminUsers = () => {
-    requestApiHanlder({
+    requestApiSelectedHanlder({
       funcAPI: adminUsersAPI,
       title: '계정 관리자 설정',
       list: userData.list,
@@ -81,7 +81,7 @@ const index = () => {
   };
 
   const onClickNormalUsers = () => {
-    requestApiHanlder({
+    requestApiSelectedHanlder({
       funcAPI: normalUsersAPI,
       title: '계정 일반회원 설정',
       list: userData.list,

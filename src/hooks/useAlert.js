@@ -11,18 +11,20 @@ const useAlert = () => {
     type: '',
     message: '',
     isOk: true,
-    okOnClick: () => {},
-    isCancel: false
+    okOnClick: () => {
+    },
+    isCancel: false,
   });
   const MessageAlert = ({
                           title,
                           type,
                           message,
                           isOk = true,
-                          okOnClick = () => {},
+                          okOnClick = () => {
+                          },
                           isCancel = false,
                           isSuccess = true,
-  }) => {
+                        }) => {
     if (isSuccess) {
       setSuccessView(true);
     } else {
@@ -34,19 +36,55 @@ const useAlert = () => {
       message: message,
       isOk: isOk,
       okOnClick: okOnClick,
-      isCancel: isCancel
-    })
-  }
+      isCancel: isCancel,
+    });
+  };
 
-  const requestApiHanlder = async ({
-                                     funcAPI,
-                                     title,
-                                     list,
-                                     selectedRowKeys,
-                                     resetSelection = () => {},
-                                     trigger = () => {},
-                                     targetId = ''
-  }) => {
+  const requestApiHanlder = async (
+    {
+      funcAPI = () => {
+      },
+      data = {},
+      title = '',
+      afterAction = () => {
+      },
+    },
+  ) => {
+    try {
+      const result = await funcAPI(data);
+      MessageAlert({
+        title: `${title} 완료`,
+        type: title,
+        message: result.data.msg,
+        isSuccess: true,
+        okOnClick: () => {
+          afterAction();
+        },
+      });
+    } catch (e) {
+      MessageAlert({
+        title: `${title} 실패`,
+        type: title,
+        message: e.response.data.msg,
+        isSuccess: false,
+      });
+    }
+  };
+
+
+  const requestApiSelectedHanlder = async (
+    {
+      funcAPI,
+      title,
+      list,
+      selectedRowKeys,
+      resetSelection = () => {
+      },
+      trigger = () => {
+      },
+      targetId = '',
+    }
+  ) => {
     if (selectedRowKeys.length === 0) {
       return;
     }
@@ -70,17 +108,18 @@ const useAlert = () => {
       },
       isCancel: true,
     });
-  }
+  };
 
-  const SuccessAlert = () => ConfirmAlert({view: successView, setView: setSuccessView, config, isSuccess: true});
-  const ErrorAlert = () => ConfirmAlert({view: errorView, setView: setErrorView, config, isSuccess: false});
+  const SuccessAlert = () => ConfirmAlert({ view: successView, setView: setSuccessView, config, isSuccess: true });
+  const ErrorAlert = () => ConfirmAlert({ view: errorView, setView: setErrorView, config, isSuccess: false });
 
   return {
     SuccessAlert,
     ErrorAlert,
     MessageAlert,
     requestApiHanlder,
-  }
+    requestApiSelectedHanlder,
+  };
 };
 
 export default useAlert;

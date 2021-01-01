@@ -1,0 +1,92 @@
+@import 'src/assets/scss/utils';
+
+.content-group-wrap {
+  @include flex-row;
+  align-items: flex-start;
+  margin-top: 0;
+  padding: 0 0 2rem;
+
+  & + .content-group-wrap {
+    border-top: 1px solid $border-layout-color;
+    padding: 2rem 0;
+  }
+
+  .content-group-title {
+    width: 13rem;
+    h4 {
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+  }
+
+  .content-group-input-group {
+    @include flex-column;
+    width: calc(100% - 13rem);
+    padding-top: .5rem;
+
+    .content-group-input {
+      @include flex-row;
+      align-items: center;
+      padding: .5rem 0;
+      h5 {
+        font-size: .9rem;
+        font-weight: 500;
+        width: 13rem;
+        margin: 0;
+      }
+      input,
+      .ant-input-number {
+        height: 2.5rem;
+        width: 40rem;
+        margin-right: 1rem;
+      }
+      textarea {
+        height: 10rem;
+        width: 40rem;
+        resize: none;
+      }
+      button {
+        height: 2.5rem;
+      }
+
+      .ant-picker {
+        width: 40rem;
+        padding: 0 .5rem;
+        .ant-picker-input {
+          width: 19rem;
+          input {
+            text-align: center;
+          }
+        }
+        .ant-picker-range-separator {
+          width: 1rem;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  .hashtag-wrap {
+    @include flex-row;
+    .hashtag-item {
+      background-color: $border-layout-color;
+      padding: .2rem .5rem;
+      cursor: pointer;
+      color: $oc-gray-7;
+      & + .hashtag-item {
+        margin-left: .5rem;
+      }
+    }
+  }
+
+  .ant-upload-picture-card-wrapper {
+    width: 40rem;
+    height: 112px;
+    .ant-upload-list-item-actions {
+      a {
+        display: none;
+      }
+    }
+  }
+
+}

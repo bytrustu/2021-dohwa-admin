@@ -8,4 +8,4 @@ const ButtonGroup = ({ children }) => {
   );
 };
 
-export default ButtonGroup;
+export default React.memo(ButtonGroup);

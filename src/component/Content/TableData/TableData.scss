@@ -59,3 +59,20 @@
   }
 }
 
+.event-table-wrap {
+  table {
+    th:nth-child(3),
+    td:nth-child(3) {
+      text-align: left !important;
+      padding-left: 1.5rem !important;
+    }
+  }
+  .progress {
+    font-weight: 500;
+    color: $primary-color;
+  }
+  .not-progress {
+    color: $danger-color;
+  }
+}
+

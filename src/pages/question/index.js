@@ -37,11 +37,11 @@ const index = () => {
     SuccessAlert,
     ErrorAlert,
     MessageAlert,
-    requestApiHanlder,
+    requestApiSelectedHanlder,
   } = useAlert();
 
   const onClickDelete = () => {
-    requestApiHanlder({
+    requestApiSelectedHanlder({
       funcAPI: deleteQuestionAPI,
       title: '문의사항 삭제',
       list: questionData.list,
