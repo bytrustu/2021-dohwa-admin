@@ -13,10 +13,11 @@ import ContentInputGroup from '../../component/Content/ContentGroup/ContentGroup
 import ContentGroupInput from '../../component/Content/ContentGroup/ContentGroupInput';
 import Hashtag from '../../component/Content/ContentGroup/Hashtag';
 import useInputs from '../../hooks/useInputs';
-import { loadEventByIdAPI, updateEventAPI } from '../../lib/api/event';
+import { deleteEventAPI, loadEventByIdAPI, updateEventAPI } from '../../lib/api/event';
 import config from '../../lib/config';
 import { convertLineBreak } from '../../lib/util';
 import moment from 'moment';
+
 const { IMAGE_URL } = config;
 
 const index = () => {
@@ -34,6 +35,7 @@ const index = () => {
     SuccessAlert,
     ErrorAlert,
     MessageAlert,
+    requestApiConfirmHanlder,
     requestApiHanlder,
   } = useAlert();
 
@@ -137,6 +139,17 @@ const index = () => {
     setIsEdit(true);
   };
 
+  const onClickDeleteEvent = () => {
+    requestApiConfirmHanlder({
+      funcAPI: deleteEventAPI,
+      data: [page],
+      title: '이벤트 삭제',
+      afterAction: () => {
+        router.push('/event')
+      },
+    })
+  };
+
   const onClickExit = () => {
     setIsEdit(false);
   };
@@ -221,14 +234,14 @@ const index = () => {
       content: eventData?.content,
       fileList: [
         eventData?.file &&
-          ({
-            uid: '-1',
-            name: eventData && eventData.file,
-            status: 'done',
-            url: `${IMAGE_URL}${eventData?.file}`,
-          })
+        ({
+          uid: '-1',
+          name: eventData && eventData.file,
+          status: 'done',
+          url: `${IMAGE_URL}${eventData?.file}`,
+        }),
       ],
-    })
+    });
   }, [eventData]);
 
   return (
@@ -250,7 +263,10 @@ const index = () => {
                 )
                 :
                 (
-                  <Button type="danger" onClick={onClickChangeEdit}>이벤트 수정</Button>
+                  <>
+                    <Button type="primary" onClick={onClickChangeEdit}>이벤트 수정</Button>
+                    <Button type="danger" onClick={onClickDeleteEvent}>이벤트 삭제</Button>
+                  </>
                 )
 
             }

@@ -21,6 +21,7 @@ import Image from 'next/image';
 import useAlert from '../../hooks/useAlert';
 import useModal from '../../hooks/useModal';
 import UserModal from '../../component/Modal/UserModal';
+import { converDate } from '../../lib/util';
 
 const index = () => {
   const { Option } = Select;
@@ -130,7 +131,8 @@ const index = () => {
           focus: 'password',
         },
         user: {
-          ...data
+          ...data,
+          birthday: converDate(data.birthday)
         }
       }
       ModalConfig({ modalData, beforeTrigger: trigger });

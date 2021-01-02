@@ -33,3 +33,14 @@ export const getTestRegExp = (type, value) => {
 }
 
 export const convertLineBreak = (text = '') => text.replace(/(?:\r\n|\r|\n)/g, '\n');
+
+export const converDate = (dateString) => {
+  const dateArr = dateString.split('-');
+  if (dateArr[1].length === 1) {
+    dateArr[1] = `0${dateArr[1]}`;
+  }
+  if (dateArr[2].length === 1) {
+    dateArr[2] = `0${dateArr[2]}`;
+  }
+  return dateArr.join('-');
+}

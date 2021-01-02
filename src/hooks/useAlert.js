@@ -71,6 +71,50 @@ const useAlert = () => {
     }
   };
 
+  const requestApiConfirmHanlder = (
+    {
+      funcAPI = () => {
+      },
+      data = {},
+      title = '',
+      afterAction = () => {
+      },
+    },
+  ) => {
+    MessageAlert({
+      title: `${title} 요청`,
+      type: title,
+      message: `${title} 하시겠습니까?`,
+      isSuccess: true,
+      isOk: true,
+      okOnClick: async () => {
+        try {
+          const result = await funcAPI(data);
+          MessageAlert({
+            title: `${title} 완료`,
+            type: title,
+            message: result.data.msg,
+            isSuccess: true,
+            okOnClick: () => {
+              afterAction();
+            },
+          });
+        } catch (e) {
+          MessageAlert({
+            title: `${title} 실패`,
+            type: title,
+            message: e.response.data.msg,
+            isSuccess: false,
+          });
+        }
+      },
+      isCancel: true,
+    });
+
+
+
+  };
+
 
   const requestApiSelectedHanlder = async (
     {
@@ -118,6 +162,7 @@ const useAlert = () => {
     ErrorAlert,
     MessageAlert,
     requestApiHanlder,
+    requestApiConfirmHanlder,
     requestApiSelectedHanlder,
   };
 };

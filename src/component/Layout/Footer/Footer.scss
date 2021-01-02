@@ -7,6 +7,10 @@
   @include flex-row;
   justify-content: space-between;
 
+  a {
+    color: $primary-color !important;
+  }
+
   .link-text {
     color: $oc-gray-8;
     margin: 0 .5rem;

@@ -18,7 +18,6 @@ const menuList = [
 const Sider = () => {
   const { Sider } = Layout;
   const router = useRouter();
-  console.log(router);
   return (
     <Sider className="layout-sider-wrap">
       <SiderLogo/>

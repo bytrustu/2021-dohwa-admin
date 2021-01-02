@@ -77,7 +77,7 @@ const UserModal = ({ data, visible = false, setVisible, index, beforeTrigger = (
       return MessageAlert({ title: '계정 등록 실패', type: '계정 등록', message: '생년월이 올바르지 않습니다.', isSuccess: false });
     }
     try {
-      const apiFunc = info.type === '가입' ? addUsersAPI : editUsersAPI;
+      const apiFunc = info.type === '등록' ? addUsersAPI : editUsersAPI;
       const result = await apiFunc({ ...input, type: 'email' });
       MessageAlert({
         title: `계정 ${info.type} 완료`,
