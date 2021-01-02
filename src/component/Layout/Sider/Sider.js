@@ -18,13 +18,14 @@ const menuList = [
 const Sider = () => {
   const { Sider } = Layout;
   const router = useRouter();
+  console.log(router);
   return (
     <Sider className="layout-sider-wrap">
       <SiderLogo/>
       <SiderUser/>
       <Menu
         mode="inline"
-        selectedKeys={[router.pathname]}
+        selectedKeys={[`/${router.pathname.split('/')[1]}`]}
       >
         {
           menuList.map((el, index) => (

@@ -1,5 +1,6 @@
 import React from 'react';
 import TextArea from 'antd/lib/input/TextArea';
+import { convertLineBreak } from '../../../lib/util';
 
 const Answer = ({ edit, answer, input, onChangeInput }) => {
 
@@ -14,7 +15,7 @@ const Answer = ({ edit, answer, input, onChangeInput }) => {
             :
             <>
               {
-                answer && answer.replace(/(?:\r\n|\r|\n)/g, '\n')
+                answer && convertLineBreak(answer)
               }
             </>
         }

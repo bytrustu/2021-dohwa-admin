@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import MainTitle from '../../component/Content/MainTitle';
 import Content from '../../component/Content';
 import InputGroup from '../../component/Content/InputGroup';
 import SearchGroup from '../../component/Content/SearchGroup';
-import { Button, Input, Modal, Select, Skeleton } from 'antd';
+import { Button, Input, Modal, Select } from 'antd';
 import SmallComment from '../../component/Content/SmallComment';
 import TableData from '../../component/Content/TableData';
 import Pagination from '../../component/Content/PaginationData/PaginationData';
 import useSearchInput from '../../hooks/useSearchInput';
 import useAlert from '../../hooks/useAlert';
-import QuestionModal from '../../component/Modal/QuestionModal';
-import useModal from '../../hooks/useModal';
 import ButtonGroup from '../../component/Content/ButtonGroup';
 import { useRouter } from 'next/router';
 import { deleteEventAPI, loadEventListAPI } from '../../lib/api/event';
@@ -98,7 +96,7 @@ const index = () => {
 
   const rowData = eventData && Array.isArray(eventData.list) ? eventData.list.map((el, i) => {
     const obj = { ...el };
-    obj.title = <a onClick={() => onClickTitle(1)}>{obj.title}</a>;
+    obj.title = <a onClick={() => onClickTitle(el.event_id)}>{obj.title}</a>;
     obj.key = i;
     obj.is_progress = obj.is_progress ?
       <span className="progress">진행중</span>
@@ -121,7 +119,7 @@ const index = () => {
             <Select defaultValue={0} onChange={onChangeFilter}>
               <Option value={0}>전체</Option>
               <Option value={1}>진행중</Option>
-              <Option value={2}>진행완료</Option>
+              <Option value={2}>미진행</Option>
             </Select>
             <Input name="keyword" onChange={onChangeKeyword} value={keyword} />
             <Button type="default" onClick={onClickSearch} ref={searchRef}>검색</Button>

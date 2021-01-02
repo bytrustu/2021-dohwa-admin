@@ -10,6 +10,7 @@ const useSearchInput = () => {
   });
 
   const onClickSearch = () => {
+    resetSelection();
     setPage(1);
     setParam({
       keyword,

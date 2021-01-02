@@ -69,6 +69,9 @@
   .hashtag-wrap {
     @include flex-row;
     .hashtag-item {
+      @include flex-row;
+      align-items: center;
+      height: 40px;
       background-color: $border-layout-color;
       padding: .2rem .5rem;
       cursor: pointer;
@@ -76,6 +79,43 @@
       & + .hashtag-item {
         margin-left: .5rem;
       }
+    }
+  }
+
+  .content-input-text {
+    margin: 0;
+    width: 640px;
+    height: 40px;
+    font-size: 14px;
+    @include flex-row;
+    align-items: center;
+  }
+
+  .content-input-textarea {
+    width: 640px;
+    min-height: 160px;
+    height: auto;
+    font-size: 14px;
+    white-space: break-spaces;
+  }
+
+  .content-image {
+    height: 112px;
+    width: auto;
+  }
+
+  .content-range-wrap {
+    width: 680px;
+    height: 40px;
+    @include flex-row;
+    align-items: center;
+
+    span {
+      width: calc(100% / 2 - 23px);
+      text-align: center;
+    }
+    img {
+      width: 23px;
     }
   }
 

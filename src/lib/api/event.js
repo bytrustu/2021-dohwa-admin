@@ -18,16 +18,16 @@ export const deleteEventAPI = (data) => {
   return axios.post('/event/remove', { indexs: data });
 };
 
-export const updateAnswerAPI = (data) => {
-  return axios.post('/question/update', data);
-};
-
 export const submitEventAPI = (data) => {
   return axios.post('/event/upload', data);
 };
 
-export const loadQuestionByIdAPI = (index) => {
-  const url = `/question/${index}`;
+export const updateEventAPI = (data) => {
+  return axios.post('/event/update', data);
+};
+
+export const loadEventByIdAPI = (index) => {
+  const url = `/event/${index}`;
   return {
     response: useSWR(url, fetcher, { revalidateOnFocus: false }),
     trigger: () => {

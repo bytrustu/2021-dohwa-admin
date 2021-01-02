@@ -31,3 +31,5 @@ export const getTestRegExp = (type, value) => {
   };
   return regexp[type].test(value);
 }
+
+export const convertLineBreak = (text = '') => text.replace(/(?:\r\n|\r|\n)/g, '\n');

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hashtag = ({ hashtags, removeHandle }) => {
+const Hashtag = ({ hashtags, removeHandle = () => {} }) => {
   return (
     <div className="hashtag-wrap">
       {

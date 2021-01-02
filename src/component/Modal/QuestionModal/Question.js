@@ -1,11 +1,14 @@
 import React from 'react';
+import { convertLineBreak } from '../../../lib/util';
 
 const Question = ({ question='', date='' }) => {
   return (
     <div className="question">
       <span className="mark">질문</span>
       <p className="writing">
-        {question.replace(/(?:\r\n|\r|\n)/g, '\n')}
+        {
+          convertLineBreak(question)
+        }
       </p>
       <span className="date">{date}</span>
     </div>
