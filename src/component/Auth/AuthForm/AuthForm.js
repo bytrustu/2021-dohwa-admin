@@ -31,8 +31,6 @@ const AuthForm = () => {
     },
   };
 
-
-
   return (
     <>
       <div className="form-wrap">
