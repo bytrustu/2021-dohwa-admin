@@ -1,12 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 
-const FooterLink = ({ text }) => {
+const FooterLink = ({ text, children }) => {
   return (
-    <Link className="link-text" href={''}>
-      <a>{text}</a>
-    </Link>
+    <a className="link-text" href={''}>
+      {
+        text && (
+          <span>{text}</span>
+        )
+      }
+      {
+        children && (
+          <span>{children}</span>
+        )
+      }
+    </a>
   );
 };
 
-export default FooterLink;
+export default React.memo(FooterLink);

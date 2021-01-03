@@ -31,4 +31,4 @@ const UserModalForm = ({ userRef, input, onChangeInput, form }) => {
   );
 };
 
-export default UserModalForm;
+export default React.memo(UserModalForm);

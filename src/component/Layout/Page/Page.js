@@ -5,7 +5,8 @@ import Sider from '../Sider/Sider';
 import Content from '../Content/Content';
 import Footer from '../Footer';
 
-const Page = ({ children, me }) => {
+const Page = ({ children }) => {
+
   return (
     <Layout theme="light" className="layout-page-wrap">
       <Header/>

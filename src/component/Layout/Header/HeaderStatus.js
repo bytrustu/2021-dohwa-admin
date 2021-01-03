@@ -18,4 +18,4 @@ const HeaderStatus = () => {
   );
 };
 
-export default HeaderStatus;
+export default React.memo(HeaderStatus);

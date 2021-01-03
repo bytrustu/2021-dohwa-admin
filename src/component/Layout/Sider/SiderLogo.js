@@ -14,4 +14,4 @@ const SiderLogo = () => {
   );
 };
 
-export default SiderLogo;
+export default React.memo(SiderLogo);

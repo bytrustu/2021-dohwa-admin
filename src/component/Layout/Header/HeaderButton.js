@@ -9,4 +9,4 @@ const HeaderButton = ({ text, onClick }) => {
   );
 };
 
-export default HeaderButton;
+export default React.memo(HeaderButton);

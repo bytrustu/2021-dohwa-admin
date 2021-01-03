@@ -10,4 +10,4 @@ const FooterCopyright = () => {
   );
 };
 
-export default FooterCopyright;
+export default React.memo(FooterCopyright);

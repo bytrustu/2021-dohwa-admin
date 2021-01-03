@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Tabs, message } from 'antd';
 import InputForm from './InputForm';
-import { loginAPI } from '../../../lib/api/auth';
+import { loginAPI, signupAPI } from '../../../lib/api/auth';
 
 
 const { TabPane } = Tabs;
@@ -13,9 +13,9 @@ const AuthForm = () => {
       { type: 'text', name: 'email', label: '이메일', placeholder: '이메일' },
       { type: 'password', name: 'password', label: '비밀번호', placeholder: '비밀번호' },
     ],
-    button: {
-      text: '로그인',
-      onClick: loginAPI,
+    request: {
+      type: '로그인',
+      funcAPI: loginAPI,
     },
   };
 
@@ -25,10 +25,9 @@ const AuthForm = () => {
       { type: 'password', name: 'password', label: '비밀번호', placeholder: '비밀번호' },
       { type: 'text', name: 'name', label: '이름', placeholder: '이름' },
     ],
-    button: {
-      text: '가입',
-      onClick: () => {
-      },
+    request: {
+      type: '가입',
+      funcAPI: signupAPI,
     },
   };
 

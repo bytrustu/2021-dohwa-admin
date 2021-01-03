@@ -13,4 +13,4 @@ const HeaderTitle = () => {
   );
 };
 
-export default HeaderTitle;
+export default React.memo(HeaderTitle);

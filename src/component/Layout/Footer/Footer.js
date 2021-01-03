@@ -5,13 +5,14 @@ import FooterCopyright from './FooterCopyright';
 
 const Footer = () => {
   const { Footer } = Layout;
-
   return (
     <Footer className="layout-footer-wrap">
       <FooterLink text='개인정보관리지침'/>
-      <FooterLink text={FooterCopyright()}/>
+      <FooterLink>
+        <FooterCopyright/>
+      </FooterLink>
     </Footer>
   );
 };
 
-export default Footer;
+export default React.memo(Footer);

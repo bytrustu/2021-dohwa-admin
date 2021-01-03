@@ -40,4 +40,4 @@ const Sider = () => {
   );
 };
 
-export default Sider;
+export default React.memo(Sider);

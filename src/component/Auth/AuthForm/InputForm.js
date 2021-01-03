@@ -6,11 +6,11 @@ import useAlert from '../../../hooks/useAlert';
 import { useRouter } from 'next/router';
 
 const InputForm = ({ data }) => {
-  const { form, button } = data;
+  const { form, request } = data;
   const [inputForm] = Form.useForm();
   const [formDisabled, setFormDisabled] = useState(true);
 
-  const [input, onChangeInput] = useInputs(
+  const [input, onChangeInput, setInput] = useInputs(
     makeNameToObject(form.map(el => el.name)),
   );
 
@@ -22,10 +22,11 @@ const InputForm = ({ data }) => {
     MessageAlert,
   } = useAlert();
 
-  const onSubmit = () => {
-    button.onClick(input)
-      .then(res => {
-        document.cookie = `token=${res.data.token};`;
+  const onSubmit = async () => {
+    if (request.type === '로그인') {
+      try {
+        const result = await request.funcAPI(input);
+        document.cookie = `token=${result.data.token};`;
         MessageAlert({
           title: '로그인 인증 완료',
           type: '로그인 인증',
@@ -35,15 +36,40 @@ const InputForm = ({ data }) => {
           },
           isSuccess: true,
         });
-      })
-      .catch(error => {
+      } catch (e) {
         MessageAlert({
           title: '로그인 인증 실패',
           type: '로그인 인증',
-          message: error.response.data.msg,
+          message: e.response.data.msg,
           isSuccess: false,
         });
-      });
+      }
+    }
+    if (request.type === '가입') {
+      try {
+        const result = await request.funcAPI(input);
+        MessageAlert({
+          title: '계정 가입 완료',
+          type: '계정 가입',
+          message: result.data.msg,
+          okOnClick: () => {
+            setInput({
+              email: '',
+              password: '',
+              name: ''
+            })
+          },
+          isSuccess: true,
+        });
+      } catch (e) {
+        MessageAlert({
+          title: '계정 가입 실패',
+          type: '계정 가입',
+          message: e.response.data.msg,
+          isSuccess: false,
+        });
+      }
+    }
   };
 
   useEffect(() => {
@@ -82,7 +108,7 @@ const InputForm = ({ data }) => {
               onClick={onSubmit}
               disabled={formDisabled}
             >
-              {button.text}
+              {request.type}
             </Button>
           </Form.Item>
         </Form>
