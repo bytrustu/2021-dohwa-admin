@@ -83,12 +83,16 @@
   }
 
   .content-input-text {
+    @include ellipsis;
     margin: 0;
     width: 640px;
     height: 40px;
     font-size: 14px;
     @include flex-row;
     align-items: center;
+    a {
+      @include ellipsis;
+    }
   }
 
   .content-input-textarea {

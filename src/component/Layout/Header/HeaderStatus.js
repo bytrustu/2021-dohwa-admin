@@ -4,11 +4,12 @@ import {
   LogoutOutlined,
 } from '@ant-design/icons';
 import { useRouter } from 'next/router';
+import Cookies from 'universal-cookie';
 
 const HeaderStatus = () => {
   const router = useRouter();
   const onClickLogout = () => {
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    new Cookies().remove('token');
     router.push('/auth');
   };
   return (

@@ -132,7 +132,6 @@ const index = () => {
         },
         user: {
           ...data,
-          birthday: converDate(data.birthday)
         }
       }
       ModalConfig({ modalData, beforeTrigger: trigger });

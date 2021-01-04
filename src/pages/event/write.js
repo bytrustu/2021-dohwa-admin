@@ -15,6 +15,7 @@ import SmallComment from '../../component/Content/SmallComment';
 import Hashtag from '../../component/Content/ContentGroup/Hashtag';
 import useInputs from '../../hooks/useInputs';
 import { submitEventAPI } from '../../lib/api/event';
+import { getTestRegExp } from '../../lib/util';
 
 
 const index = () => {
@@ -32,6 +33,7 @@ const index = () => {
 
   const typeRef = React.useRef();
   const hashtagRef = React.useRef();
+  const linkRef = React.useRef();
   const titleRef = React.useRef();
   const contentRef = React.useRef();
   const costRef = React.useRef();
@@ -39,6 +41,7 @@ const index = () => {
   const [input, onChangeInput, setInput] = useInputs({
     start_date: '',
     end_date: '',
+    link: '',
     cost: 0,
     title: '',
     type: '',
@@ -51,6 +54,7 @@ const index = () => {
   const {
     start_date,
     end_date,
+    link,
     cost,
     title,
     type,
@@ -153,6 +157,11 @@ const index = () => {
     }
     formData.append('title', title);
 
+    if (!getTestRegExp('link', link)) {
+      return eventAlert('구매링크', linkRef);
+    }
+    formData.append('link', link);
+
     if (content.trim().length === 0) {
       return eventAlert('내용', contentRef);
     }
@@ -230,6 +239,16 @@ const index = () => {
                 </ContentGroupInput>
               )
             }
+            <ContentGroupInput title="구매링크">
+              <Input
+                type="text"
+                name="link"
+                value={link}
+                onChange={onChangeInput}
+                placeholder="http:// https:// 포함 입력"
+                ref={linkRef}
+              />
+            </ContentGroupInput>
             <ContentGroupInput title="제목">
               <Input
                 type="text"

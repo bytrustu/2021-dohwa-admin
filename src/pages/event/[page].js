@@ -15,7 +15,8 @@ import Hashtag from '../../component/Content/ContentGroup/Hashtag';
 import useInputs from '../../hooks/useInputs';
 import { deleteEventAPI, loadEventByIdAPI, updateEventAPI } from '../../lib/api/event';
 import config from '../../lib/config';
-import { convertLineBreak } from '../../lib/util';
+import { convertLineBreak, getTestRegExp } from '../../lib/util';
+import Link from 'next/link';
 import moment from 'moment';
 
 const { IMAGE_URL } = config;
@@ -42,6 +43,7 @@ const index = () => {
   const [isEdit, setIsEdit] = React.useState(false);
 
   const typeRef = React.useRef();
+  const linkRef = React.useRef();
   const hashtagRef = React.useRef();
   const titleRef = React.useRef();
   const contentRef = React.useRef();
@@ -50,6 +52,7 @@ const index = () => {
   const [input, onChangeInput, setInput] = useInputs({
     start_date: eventData?.start_date,
     end_date: eventData?.end_date,
+    link : eventData?.link,
     cost: eventData?.cost,
     title: eventData?.title,
     type: eventData?.type,
@@ -62,6 +65,7 @@ const index = () => {
   const {
     start_date,
     end_date,
+    link,
     cost,
     title,
     type,
@@ -179,6 +183,11 @@ const index = () => {
     }
     formData.append('hashtag', hashtag);
 
+    if (!getTestRegExp('link', link)) {
+      return eventAlert('구매링크', linkRef);
+    }
+    formData.append('link', link);
+
     if (title.trim().length === 0) {
       return eventAlert('제목', titleRef);
     }
@@ -226,6 +235,7 @@ const index = () => {
     setInput({
       start_date: eventData?.start_date,
       end_date: eventData?.end_date,
+      link: eventData?.link,
       cost: eventData?.cost,
       title: eventData?.title,
       type: eventData?.type,
@@ -319,6 +329,23 @@ const index = () => {
                 </ContentGroupInput>
               )
             }
+            <ContentGroupInput title="구매링크">
+              {
+                isEdit ?
+                  <Input
+                    type="text"
+                    name="link"
+                    value={link}
+                    onChange={onChangeInput}
+                    placeholder="http:// https:// 포함 입력"
+                    ref={linkRef}
+                  />
+                  :
+                  <p className="content-input-text">
+                    <a href={eventData?.link} target="_blank">{eventData?.link}</a>
+                  </p>
+              }
+            </ContentGroupInput>
             <ContentGroupInput title="제목">
               {
                 isEdit ?

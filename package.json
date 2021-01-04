@@ -33,6 +33,7 @@
     "sass": "^1.30.0",
     "styled-components": "^5.2.1",
     "swr": "^0.3.11",
+    "universal-cookie": "^4.0.4",
     "webpack": "^4.44.1",
     "webpack-cli": "^4.2.0"
   }

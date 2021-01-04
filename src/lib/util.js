@@ -28,19 +28,9 @@ export const getTestRegExp = (type, value) => {
     password: /^.{8,30}$/,
     birthday: /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/,
     phone: /^\d{1,30}$/,
+    link: /(http(s)?:\/\/)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}/gi,
   };
   return regexp[type].test(value);
 }
 
 export const convertLineBreak = (text = '') => text.replace(/(?:\r\n|\r|\n)/g, '\n');
-
-export const converDate = (dateString) => {
-  const dateArr = dateString.split('-');
-  if (dateArr[1].length === 1) {
-    dateArr[1] = `0${dateArr[1]}`;
-  }
-  if (dateArr[2].length === 1) {
-    dateArr[2] = `0${dateArr[2]}`;
-  }
-  return dateArr.join('-');
-}
