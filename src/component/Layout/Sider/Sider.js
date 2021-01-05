@@ -12,16 +12,16 @@ const menuList = [
   { name: '문의사항', link: '/question', icon: '📋' },
   { name: '제품정보', link: '/product', icon: '🗂' },
   { name: '계정관리', link: '/user', icon: '⚙️' },
-  { name: '로그', link: '/log', icon: '🔍' },
-];
+  // { name: '로그', link: '/log', icon: '🔍' },
+]
 
 const Sider = () => {
   const { Sider } = Layout;
   const router = useRouter();
   return (
     <Sider className="layout-sider-wrap">
-      <SiderLogo/>
-      <SiderUser/>
+      <SiderLogo />
+      <SiderUser />
       <Menu
         mode="inline"
         selectedKeys={[`/${router.pathname.split('/')[1]}`]}
