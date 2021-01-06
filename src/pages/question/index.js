@@ -8,7 +8,6 @@ import SmallComment from '../../component/Content/SmallComment';
 import TableData from '../../component/Content/TableData';
 import Pagination from '../../component/Content/PaginationData/PaginationData';
 import useSearchInput from '../../hooks/useSearchInput';
-import Image from 'next/image';
 import useAlert from '../../hooks/useAlert';
 import { deleteQuestionAPI, loadQuestionListAPI } from '../../lib/api/question';
 import QuestionModal from '../../component/Modal/QuestionModal';

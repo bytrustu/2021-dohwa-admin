@@ -103,7 +103,7 @@ const index = () => {
       <ErrorAlert />
       <MainTitle src="/images/maintitle/skincare.svg" title="피부리포트" />
       <Content>
-        <SmallComment comment="피부리포트 검색은 작성자의 이름, 이메일로 가능 합니다." />
+        <SmallComment comment="피부리포트 검색은 작성자의 이름, 이메일로 검색 됩니다." />
         <InputGroup>
           <SearchGroup>
             <Input name="keyword" onChange={onChangeKeyword} value={keyword} />
