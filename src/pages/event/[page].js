@@ -258,7 +258,7 @@ const index = () => {
     <>
       <SuccessAlert />
       <ErrorAlert />
-      <MainTitle src="/images/maintitle/event.svg" title="이벤트 등록" />
+      <MainTitle src="/images/maintitle/event.svg" title="이벤트 보기" />
       <Content style={{ marginTop: '2rem', paddingTop: '0' }}>
         <InputGroup>
           <SearchGroup />

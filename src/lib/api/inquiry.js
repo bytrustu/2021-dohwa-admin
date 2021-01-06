@@ -23,7 +23,7 @@ export const updateInquiryAPI = (data) => {
 };
 
 export const loadInquiryByIdAPI = (index) => {
-  const url = `/event/${index}`;
+  const url = `/survey/admin/${index}`;
   return {
     response: useSWR(url, fetcher, { revalidateOnFocus: false }),
     trigger: () => {

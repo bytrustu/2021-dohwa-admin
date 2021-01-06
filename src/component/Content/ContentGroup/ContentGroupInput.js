@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ContentGroupInput = ({ title = '', children }) => {
+const ContentGroupInput = ({ title = '', style, children }) => {
   return (
-    <div className="content-group-input">
+    <div className="content-group-input" style={style}>
       <h5>{title}</h5>
       {children}
     </div>
