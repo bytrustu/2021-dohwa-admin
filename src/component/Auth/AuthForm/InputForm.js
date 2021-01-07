@@ -4,8 +4,6 @@ import useInputs from '../../../hooks/useInputs';
 import { isNotEmptyObjectValue, makeNameToObject } from '../../../lib/util';
 import useAlert from '../../../hooks/useAlert';
 import { useRouter } from 'next/router';
-import Cookies from 'universal-cookie';
-
 
 const InputForm = ({ data }) => {
   const { form, request } = data;
@@ -27,8 +25,7 @@ const InputForm = ({ data }) => {
   const onSubmit = async () => {
     if (request.type === '로그인') {
       try {
-        const result = await request.funcAPI(input);
-        new Cookies().set('token', result.data.token, { path: '/' });
+        await request.funcAPI(input);
         MessageAlert({
           title: '로그인 인증 완료',
           type: '로그인 인증',
