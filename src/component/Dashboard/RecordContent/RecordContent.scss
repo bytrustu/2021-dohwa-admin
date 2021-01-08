@@ -1,0 +1,32 @@
+@import '../../../assets/scss/utils';
+
+.record-content-wrap {
+  @include flex-column;
+  height: 12rem;
+  width: 100%;
+  padding: .5rem 1.5rem;
+
+  .record-content-text {
+    @include flex-row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    color: $oc-gray-7;
+
+    & + .record-content-text {
+      margin-top: 1rem;
+    }
+  }
+
+  .text {
+    @include ellipsis;
+    width: calc(100% - 6rem);
+  }
+
+  .author {
+    @include ellipsis;
+    width: 3.5rem;
+    text-align: right;
+  }
+
+}

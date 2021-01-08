@@ -1,0 +1,15 @@
+@import '../../../assets/scss/utils';
+
+.status-card {
+  &.ant-card {
+    .ant-card-head {
+      border-bottom: unset !important;
+    }
+
+    .ant-card-body {
+      @include flex-row;
+      justify-content: space-between;
+      padding: .5rem 0 1.5rem !important;
+    }
+  }
+}

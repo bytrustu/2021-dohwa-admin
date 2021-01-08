@@ -1,0 +1,53 @@
+@import '../../../assets/scss/utils';
+
+.status-content-wrap {
+  @include flex-column-center;
+  flex: 1 1 0;
+  .arrow {
+    width: 2rem;
+  }
+
+  strong {
+    margin-top: .5rem;
+    font-size: 1.5rem;
+  }
+
+
+  .ant-tag {
+    margin: .5rem 0 0;
+    .percent {
+      margin-left: .2rem;
+    }
+  }
+
+  .date-wrap {
+    margin-top: 1rem;
+    img {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    p {
+      @include flex-row-center;
+      margin: 0;
+      padding: 0;
+      font-size: .7rem;
+
+
+      & + p {
+        margin-top: .2rem;
+      }
+    }
+
+    .current {
+      @include flex-row;
+      align-items: center;
+      color: $primary-color;
+      font-weight: 500;
+
+      span {
+        margin-left: .3rem;
+      }
+    }
+  }
+}

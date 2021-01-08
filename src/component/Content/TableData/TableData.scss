@@ -11,6 +11,10 @@
       height: 45px;
     }
 
+    a {
+      color: $primary-color;
+    }
+
     .not-answer {
       color: $oc-red-5;
       font-weight: 500;

@@ -19,9 +19,6 @@ const index = () => {
   const { response, trigger } = loadProductByIdAPI(page);
   const { data: productData, error, isValidating } = response;
 
-  console.log(productData);
-
-
   return (
     <>
       <MainTitle src="/images/maintitle/product-design.svg" title="제품정보 보기" />

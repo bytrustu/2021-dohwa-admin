@@ -7,7 +7,7 @@
 @import '/src/component/Auth/AuthTitle/AuthTitle';
 @import '/src/component/Auth/Page/Page';
 
-// Content
+// RecordGroup
 @import '/src/component/Content/ButtonGroup/ButtonGroup';
 @import '/src/component/Content/Content/Content';
 @import '/src/component/Content/InputGroup/InputGroup';
@@ -29,3 +29,12 @@
 @import '/src/component/Modal/Modal/Modal';
 @import '/src/component/Modal/QuestionModal/QuestionModal';
 @import '/src/component/Modal/UserModal/UserModal';
+
+// Dashboard
+@import '/src/component/Dashboard/StatusGroup/StatusGroup';
+@import '/src/component/Dashboard/Status/Status';
+@import '/src/component/Dashboard/StatusContent/StatusContent';
+
+@import '/src/component/Dashboard/RecordGroup/RecordGroup';
+@import '/src/component/Dashboard/Record/Record';
+@import '/src/component/Dashboard/RecordContent/RecordContent';
