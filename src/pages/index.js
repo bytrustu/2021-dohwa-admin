@@ -15,7 +15,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <StatusGroup />
+      {/*<StatusGroup />*/}
       <RecordGroup eventData={eventData} inquiryData={inquiryData} questionData={questionData} userData={userData} />
     </>
   );
