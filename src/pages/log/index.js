@@ -11,15 +11,11 @@ const index = () => {
   const { TabPane } = Tabs;
   const { RangePicker } = DatePicker;
 
-  function callback(key) {
-    console.log(key);
-  }
-
   return (
     <div>
       <MainTitle src="/images/maintitle/log-file.svg" title="로그" />
       <Content>
-        <Tabs defaultActiveKey="1" onChange={callback}>
+        <Tabs defaultActiveKey="1">
           <TabPane tab="접속이력" key="1">
             <InputGroup>
               <SearchGroup>

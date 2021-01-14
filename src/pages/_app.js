@@ -5,9 +5,31 @@ import '../assets/scss/main.scss';
 import Layout from '../component/Layout';
 import axios from '../lib/defaultClient';
 import { loadUserAPI } from '../lib/api/auth';
+import Router from 'next/router';
+import PageLoading from '../component/Loading/PageLoading';
 
 const MyApp = ({ Component, pageProps, me }) => {
-    return (
+
+  const [loading, SetLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    const start = () => {
+      SetLoading(true);
+    };
+    const end = () => {
+      SetLoading(false);
+    };
+    Router.events.on("routeChangeStart", start);
+    Router.events.on("routeChangeComplete", end);
+    Router.events.on("routeChangeError", end);
+    return () => {
+      Router.events.off("routeChangeStart", start);
+      Router.events.off("routeChangeComplete", end);
+      Router.events.off("routeChangeError", end);
+    };
+  }, []);
+
+  return (
       <>
         <Head>
           <title>도화 관리자</title>
@@ -15,6 +37,11 @@ const MyApp = ({ Component, pageProps, me }) => {
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
                 className="next-head" />
         </Head>
+
+        {
+          loading && <PageLoading/>
+        }
+
         {
           (pageProps && pageProps.pathname === '/auth') || (pageProps && pageProps.pathname === '/auth/signup')
             ?
