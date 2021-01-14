@@ -2,10 +2,12 @@ import React from 'react';
 import useInputs from './useInputs';
 import ConfirmAlert from '../component/Alert/ConfirmAlert';
 import { selectionArrayByIndexs } from '../lib/util';
+import BlockLoading from '../component/Loading/BlockLoading';
 
 const useAlert = () => {
   const [successView, setSuccessView] = React.useState(false);
   const [errorView, setErrorView] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
   const [config, , setConfig] = useInputs({
     title: '',
     type: '',
@@ -89,7 +91,9 @@ const useAlert = () => {
       isOk: true,
       okOnClick: async () => {
         try {
+          setLoading(true);
           const result = await funcAPI(data);
+          setLoading(false);
           MessageAlert({
             title: `${title} 완료`,
             type: title,
@@ -156,6 +160,7 @@ const useAlert = () => {
 
   const SuccessAlert = () => ConfirmAlert({ view: successView, setView: setSuccessView, config, isSuccess: true });
   const ErrorAlert = () => ConfirmAlert({ view: errorView, setView: setErrorView, config, isSuccess: false });
+  const AlertLoading = () => BlockLoading({ view: loading });
 
   return {
     SuccessAlert,
@@ -164,6 +169,7 @@ const useAlert = () => {
     requestApiHanlder,
     requestApiConfirmHanlder,
     requestApiSelectedHanlder,
+    AlertLoading,
   };
 };
 

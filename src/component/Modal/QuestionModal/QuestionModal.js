@@ -3,8 +3,10 @@ import { Button, Modal } from 'antd';
 import QuestionTitle from './QuestionTitle';
 import Question from './Question';
 import Answer from './Answer';
-import { loadQuestionByIdAPI, updateAnswerAPI } from '../../../lib/api/question';
+import { loadQuestionByIdAPI, sendEmailQuestionAPI, updateAnswerAPI } from '../../../lib/api/question';
 import useAlert from '../../../hooks/useAlert';
+import { deleteInquiryAPI } from '../../../lib/api/inquiry';
+import BlockLoading from '../../Loading/BlockLoading';
 
 const QuestionModal = ({ visible = false, setVisible, index, beforeTrigger }) => {
 
@@ -34,16 +36,12 @@ const QuestionModal = ({ visible = false, setVisible, index, beforeTrigger }) =>
   };
   const onClickSuccess = async () => {
     const result = await updateAnswerAPI({ question_id: index, answer });
-    MessageAlert({
-      title: '답변 등록 완료',
-      type: '답변 등록',
-      message: result.data.msg,
-      isSuccess: true,
-      isOk: true,
-      okOnClick: () => {
-        setEdit(false);
-        mutate();
-      },
+    setEdit(false);
+    mutate();
+    requestApiConfirmHanlder({
+      funcAPI: sendEmailQuestionAPI,
+      data: {question_id: index},
+      title: '문의사항 이메일 발송',
     });
   };
 
@@ -55,12 +53,15 @@ const QuestionModal = ({ visible = false, setVisible, index, beforeTrigger }) =>
     SuccessAlert,
     ErrorAlert,
     MessageAlert,
+    requestApiConfirmHanlder,
+    AlertLoading
   } = useAlert();
 
   return (
     <>
       <SuccessAlert />
       <ErrorAlert />
+      <AlertLoading/>
       {
         <Modal
           transitionName=""

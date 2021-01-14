@@ -13,6 +13,7 @@ import { deleteQuestionAPI, loadQuestionListAPI } from '../../lib/api/question';
 import QuestionModal from '../../component/Modal/QuestionModal';
 import useModal from '../../hooks/useModal';
 import ButtonGroup from '../../component/Content/ButtonGroup';
+import BlockLoading from '../../component/Loading/BlockLoading';
 
 const index = () => {
 

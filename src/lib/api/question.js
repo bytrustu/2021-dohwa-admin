@@ -27,3 +27,7 @@ export const loadQuestionByIdAPI = (index) => {
     trigger: () => { trigger(url) }
   }
 }
+
+export const sendEmailQuestionAPI = (data) => {
+  return axios.post('/question/send_email', data);
+};
